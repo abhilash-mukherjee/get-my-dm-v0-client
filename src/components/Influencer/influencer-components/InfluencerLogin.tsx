@@ -1,8 +1,6 @@
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Appbar } from '../../common/Appbar';
-import { useNavigate } from 'react-router-dom';
 export function InfluencerLogin() {
-    const navigate = useNavigate();
     return (
         <>
             <div style={{
