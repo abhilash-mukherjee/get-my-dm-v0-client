@@ -12,7 +12,7 @@ const themeOptions: ThemeOptions = {
     info: {
       main: '#F8FBFF',
     },
-  }, 
+  },
   typography: {
     fontFamily: 'Poppins',
   },
@@ -37,6 +37,13 @@ const themeOptions: ThemeOptions = {
         }
       `,
     },
+    MuiOutlinedInput: {
+      styleOverrides:{
+        root:{
+          fontSize:'medium'
+        }
+      }
+    }
   }
 };
 

@@ -10,7 +10,7 @@ export function Appbar() {
                 }
             }>
                     <img src={logo} alt="logo" style={{
-                        maxWidth:'100px'
+                        maxWidth:'90px'
                     }} />
             </Container>
         </>
