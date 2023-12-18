@@ -43,6 +43,13 @@ const themeOptions: ThemeOptions = {
           fontSize:'medium'
         }
       }
+    },
+    MuiCircularProgress:{
+      styleOverrides:{
+        root:{
+          color: "#F5F5F5"
+        }
+      }
     }
   }
 };

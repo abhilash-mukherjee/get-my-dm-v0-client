@@ -1,8 +1,16 @@
 import { Button, Grid, Typography } from '@mui/material';
 import { Appbar } from '../../common/Appbar';
 import { useNavigate } from 'react-router-dom';
+import { useAuthRedirect } from '../../../hooks/influencer-hooks/useAuthRedirect';
 export function InfluencerLandingPage() {
+    const {isAuthChecked} = useAuthRedirect();
     const navigate = useNavigate();
+    if (!isAuthChecked) {
+        return (
+            <>
+            </>
+        ) 
+    }
     return (
         <>
             <div style={{

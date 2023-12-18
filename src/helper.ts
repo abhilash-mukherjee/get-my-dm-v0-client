@@ -1,1 +1,0 @@
-export const BASE_URL =  'https://get-my-dm-v0-server.onrender.com';
