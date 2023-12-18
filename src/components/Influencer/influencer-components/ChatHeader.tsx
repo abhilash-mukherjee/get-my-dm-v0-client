@@ -41,7 +41,9 @@ export function ChatHeader() {
                 <Typography fontWeight={700} fontSize={'0.9em'}>{PROMOTION_URL}{userDetailsState.slug}</Typography>
                 <ContentCopyIcon onClick={() => {
                     handleCopy(PROMOTION_URL + userDetailsState.slug);
-                    toast.info('URL Copied')
+                    toast.info('URL Copied',{
+                        
+                    })
                 }} fontSize="small" style={{ cursor: 'pointer' }} />
             </div>
         </div>
