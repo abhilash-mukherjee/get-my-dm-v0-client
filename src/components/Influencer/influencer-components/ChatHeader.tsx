@@ -7,7 +7,7 @@ import { PROMOTION_URL, TOKEN } from "../../../helpers/strings";
 import { useNavigate } from "react-router-dom";
 import { useFetchInfluencerDetails } from "../../../hooks/influencer-hooks/useFetchInfluencerDetails";
 import { handleCopy } from "../../../helpers/helperMethods";
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 
 export function ChatHeader() {
@@ -40,13 +40,9 @@ export function ChatHeader() {
             <div className="header-bottom">
                 <Typography fontWeight={700} fontSize={'0.9em'}>{PROMOTION_URL}{userDetailsState.slug}</Typography>
                 <ContentCopyIcon onClick={() => {
-                    alert('above copy')
                     handleCopy(PROMOTION_URL + userDetailsState.slug);
-                    alert('below copy copy')
-                    toast('URL Copied')
+                    toast.info('URL Copied')
                 }} fontSize="small" style={{ cursor: 'pointer' }} />
-                <ToastContainer />
-
             </div>
         </div>
     )
