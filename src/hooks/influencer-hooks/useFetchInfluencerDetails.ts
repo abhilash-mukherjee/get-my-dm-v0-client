@@ -22,12 +22,14 @@ export function useFetchInfluencerDetails() {
             );
             const parsedInput = influencerDetailsSchema.safeParse(response.data)
             if(!parsedInput.success){
+                localStorage.removeItem(TOKEN);
                 return navigate('../')
             }
             setInfluencerDetails({...parsedInput.data});
             setIsDetailsFetched(true);
         }
         catch (e) {
+            localStorage.removeItem(TOKEN);
             navigate('../');
         }
     }
