@@ -64,6 +64,7 @@ export function InfluencerSignup() {
             navigate(`../chats`);
         }
         catch (e) {
+            localStorage.removeItem(TOKEN);
             handleHTTPError(e);
         }
         setIsLoading(false);
