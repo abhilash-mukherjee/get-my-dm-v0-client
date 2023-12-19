@@ -59,7 +59,10 @@ export function InfluencerSignup() {
         try {
             const response = await axios.post(`${BASE_URL}/influencer/signup`, { ...inputValueState });
             const parsedResponse = authenticationSuccessResponseSchema.safeParse(response.data);
-            if (!parsedResponse.success) return alert('An unknown error occured while signing up');
+            if (!parsedResponse.success){
+                localStorage.removeItem(TOKEN);
+                 return alert('An unknown error occured while signing up');
+                }
             localStorage.setItem(TOKEN, parsedResponse.data.token);
             navigate(`../chats`);
         }
