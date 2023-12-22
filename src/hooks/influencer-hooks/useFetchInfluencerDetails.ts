@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { BASE_URL, TOKEN } from '../../helpers/strings';
 import axios from 'axios';
-import { influencerDetailsState } from '../../store/atoms/influencerAtoms';
+import { influencerDetailsState } from '../../store/atoms/influencerDetailsAtom';
 import { influencerDetailsSchema } from '../../helpers/zodSchemas';
 
 export function useFetchInfluencerDetails() {
+    console.log('inside fetch details');
     const [isDetailsFetched, setIsDetailsFetched] = useState(false);
     const setInfluencerDetails = useSetRecoilState(influencerDetailsState);
     const navigate = useNavigate();

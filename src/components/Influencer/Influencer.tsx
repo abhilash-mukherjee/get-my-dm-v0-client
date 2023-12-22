@@ -3,10 +3,9 @@ import { InfluencerLandingPage } from "./influencer-components/InfluencerLanding
 import { InfluencerSignup } from "./influencer-components/InfluencerSignup";
 import { InfluencerLogin } from "./influencer-components/InfluencerLogin";
 import { Chats } from "./influencer-components/Chats";
-import { useAuthRedirect } from "../../hooks/influencer-hooks/useAuthRedirect";
+import { Chat } from "./influencer-components/Chat";
 
 export function Influencer() {
-    useAuthRedirect();
     return (
         <>
             <Routes>
@@ -14,6 +13,7 @@ export function Influencer() {
                 <Route path='signup' element={<InfluencerSignup />} />
                 <Route path='login' element={<InfluencerLogin />} />
                 <Route path='chats' element={<Chats />} />
+                <Route path='chats/:id' element={<Chat/>} />
             </Routes>
         </>
     )

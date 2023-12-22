@@ -3,7 +3,8 @@ import { Appbar } from '../../common/Appbar';
 import { useNavigate } from 'react-router-dom';
 import { useAuthRedirect } from '../../../hooks/influencer-hooks/useAuthRedirect';
 export function InfluencerLandingPage() {
-    const {isAuthChecked} = useAuthRedirect();
+    console.log('inside landing page')
+    const {isAuthChecked} = useAuthRedirect('./chats');
     const navigate = useNavigate();
     if (!isAuthChecked) {
         return (

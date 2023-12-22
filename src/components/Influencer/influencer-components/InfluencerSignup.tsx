@@ -11,7 +11,7 @@ import { authenticationSuccessResponseSchema } from '../../../helpers/zodSchemas
 import { handleHTTPError } from '../../../helpers/errorHandler';
 import { useAuthRedirect } from '../../../hooks/influencer-hooks/useAuthRedirect';
 export function InfluencerSignup() {
-    const { isAuthChecked } = useAuthRedirect();
+    const { isAuthChecked } = useAuthRedirect('../chats');
     const [isLoading, setIsLoading] = useState(false);
     const [inputValueState, setInputValues] = useState({
         fullname: '',

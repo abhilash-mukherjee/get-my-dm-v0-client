@@ -1,0 +1,118 @@
+.individual-chat-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    overflow-y: wrap;
+}
+
+.header{
+    padding-inline: 12px;
+    padding-top: 16px;
+    padding-bottom: 4px;
+    display: flex;
+    gap: 40px;
+    background-color: white; 
+    width: 100%;
+}
+
+.messages-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 12px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.influencer-msg-container, .follower-msg-container{
+    max-width: 70%;
+    word-break: break-word;
+}
+.follower-msg-container{
+    align-self: flex-start;
+}
+.influencer-msg-container{
+    align-self: flex-end;
+}
+
+.follower-msg-contents, .influencer-msg-contents{
+    border-radius: 6px;
+    padding-inline: 16px;
+    padding-block: 8px;
+}
+.follower-msg-contents{
+    background-color:#FDEDF4;
+}
+.influencer-msg-contents{
+    background-color: #F8FBFF;
+}
+
+.chat-footer{
+    display: flex;
+    justify-content: flex-end;
+    gap:4px
+}
+
+
+
+/* For Webkit browsers */
+.messages-container::-webkit-scrollbar {
+    width: 5px; /* width of the entire scrollbar */
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the tracking area */
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: #c4c4c4; /* color of the scroll thumb */
+    border-radius: 10px; /* roundness of the scroll thumb */
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background: #c9c9c9; /* color of the scroll thumb when hovered or active */
+}
+
+/* For Firefox */
+.messages-container {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #888 #f1f1f1; /* thumb and track color */
+}
+
+.footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding:6px;
+    border-top: 1px solid black;
+    margin-top: 4px;
+    gap:6px;
+}
+
+.chat-input{
+    border:none;
+    border-radius:0;
+    outline:none;
+    flex:1;
+    resize: none;
+    scrollbar-width: 2px;
+}
+
+.chat-input::-webkit-scrollbar {
+    width: 4px; /* width of the entire scrollbar */
+}
+
+.chat-input::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the tracking area */
+}
+
+.chat-input::-webkit-scrollbar-thumb {
+    background: #c4c4c4; /* color of the scroll thumb */
+    border-radius: 10px; /* roundness of the scroll thumb */
+}
+
+.chat-input::-webkit-scrollbar-thumb:hover {
+    background: #c9c9c9; /* color of the scroll thumb when hovered or active */
+}

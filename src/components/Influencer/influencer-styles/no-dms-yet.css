@@ -1,0 +1,17 @@
+.no-dms-yet{
+    padding-top: 40px;
+    padding-inline: 10px;
+    display:flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.text{
+    font-weight: bold;
+    text-align: center;
+}
+
+.plain-text{
+    font-weight: normal;
+    text-align: center;
+}

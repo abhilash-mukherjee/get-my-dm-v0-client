@@ -2,13 +2,11 @@ import { Typography } from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import '../influencer-styles/chat-header.css'
 import { useRecoilValue } from "recoil";
-import { influencerDetailsState } from "../../../store/atoms/influencerAtoms";
+import { influencerDetailsState } from "../../../store/atoms/influencerDetailsAtom";
 import { PROMOTION_URL, TOKEN } from "../../../helpers/strings";
 import { useNavigate } from "react-router-dom";
 import { useFetchInfluencerDetails } from "../../../hooks/influencer-hooks/useFetchInfluencerDetails";
 import { handleCopy } from "../../../helpers/helperMethods";
-import { toast } from 'react-toastify'
-
 
 export function ChatHeader() {
     const navigate = useNavigate();
@@ -41,9 +39,6 @@ export function ChatHeader() {
                 <Typography fontWeight={700} fontSize={'0.9em'}>{PROMOTION_URL}{userDetailsState.slug}</Typography>
                 <ContentCopyIcon onClick={() => {
                     handleCopy(PROMOTION_URL + userDetailsState.slug);
-                    toast.info('URL Copied',{
-                        
-                    })
                 }} fontSize="small" style={{ cursor: 'pointer' }} />
             </div>
         </div>

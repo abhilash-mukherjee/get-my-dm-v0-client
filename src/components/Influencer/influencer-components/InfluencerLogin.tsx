@@ -9,7 +9,7 @@ import { BASE_URL, TOKEN } from '../../../helpers/strings';
 import { authenticationSuccessResponseSchema } from '../../../helpers/zodSchemas';
 import { handleHTTPError } from '../../../helpers/errorHandler';
 export function InfluencerLogin() {
-    const {isAuthChecked} = useAuthRedirect();
+    const {isAuthChecked} = useAuthRedirect('../chats');
     const [inputValueState, setInputValues] = useState({
         email: '',
         password: '',
