@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Typography, TextField } from "@mui/material";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
 import { selectedChatState } from "../../../store/atoms/selectedChatAtom";
 import CloseIcon from '@mui/icons-material/Close';
 import '../influencer-styles/individual-chat.css'
-import { ChatInterface, MessageInterface } from "../../../helpers/interfaces";
+import { ChatInterface, MessageInterface, defaultChat } from "../../../helpers/interfaces";
 import { useEffect, useRef, useState } from "react";
 import { influencerChatsState } from "../../../store/atoms/chatsAtom";
 import { useFetchChats } from "../../../hooks/influencer-hooks/useFetchChats";
@@ -14,33 +14,36 @@ import { MessageStatusGraphic } from "./ChatDisplay";
 import { formatTime } from "../../../helpers/helperMethods";
 import { TextInput } from "../../common/FormInput";
 import SendIcon from '@mui/icons-material/Send';
+import { selectedChatMessagesState } from "../../../store/atoms/selectedChatMessagesAtom";
+import { shouldReloadChatsState } from "../../../store/atoms/reloadChatsAtom";
 export function Chat() {
     useFetchChats();
     const conversationId = useParams().id;
     const [selectedChat, setSelectedChat] = useRecoilState(selectedChatState);
     const chats = useRecoilValue(influencerChatsState);
-    const [messages, setMessages] = useState<MessageInterface[]>([]);
+    const [messages, setMessages] = useRecoilState(selectedChatMessagesState);
+    const [shouldReloadChats, setShouldReloadChats] = useRecoilState(shouldReloadChatsState)
     const messagesContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (messagesContainerRef.current) {
-            // Scroll to the bottom of the messages container
             const scrollHeight = messagesContainerRef.current.scrollHeight;
             const height = messagesContainerRef.current.clientHeight;
             const maxScrollTop = scrollHeight - height;
             messagesContainerRef.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
         }
-    }, [messages]); 
+    }, [messages]);
     useEffect(() => {
         const chat = chats.find(chat => chat.conversationId === conversationId);
         if (!chat) return;
         fetchMessages(chat, setMessages);
         if (chat !== selectedChat) setSelectedChat(chat);
-    }, [chats])
+        setShouldReloadChats(false);
+    }, [chats, shouldReloadChats === true])
     return (
         <>
             <div className="individual-chat-container">
-                <Header/>
+                <Header />
                 <div className="messages-container" ref={messagesContainerRef}>
                     {messages.map((message) => {
                         console.log('mapping messages')
@@ -51,7 +54,7 @@ export function Chat() {
                         )
                     })}
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </>
     )
@@ -91,7 +94,7 @@ function FollowerMessage({ message }: MessageComponentProps) {
             <div className="follower-msg-contents">
                 <Typography flex={1}>{message.content}</Typography>
                 <div className='chat-footer'>
-                <Typography fontSize={'0.8em'}>{formatTime(message.timestamp)}</Typography>
+                    <Typography fontSize={'0.8em'}>{formatTime(message.timestamp)}</Typography>
                 </div>
             </div>
         </div>
@@ -118,20 +121,65 @@ interface MessageComponentProps {
 
 
 function Header() {
-    const selectedChat = useRecoilValue(selectedChatState);
+    const [selectedChat, setSelectedChat] = useRecoilState(selectedChatState);
+    const setSelectedMessages = useSetRecoilState(selectedChatMessagesState);
+    const navigate = useNavigate();
     return (
         <div className="header">
             <Typography noWrap={true} flex={1} fontWeight='bold'>{selectedChat.followerName} </Typography>
-            <CloseIcon fontSize="medium" fontWeight='black' />
+            <CloseIcon fontSize="medium" fontWeight='black'
+                onClick={
+                    () => {
+                        setSelectedChat(defaultChat);
+                        setSelectedMessages([]);
+                        navigate('../');
+                    }
+                }
+            style={{
+                cursor:'pointer'
+            }} />
         </div>
     )
 }
 
 function Footer() {
+    const [textInput, setTextInput] = useState('');
+    const [selectedMessages, setSelectedMessages] = useRecoilState(selectedChatMessagesState);
+    const selectedChat = useRecoilValue(selectedChatState);
+    const setShouldReloadChats = useSetRecoilState(shouldReloadChatsState)
     return (
         <div className="footer">
-            <textarea className="chat-input" placeholder="Type Message..."  rows={1}></textarea>
-            <SendIcon/>
+
+            <textarea className="chat-input" placeholder="Type Message..." rows={1} onChange={
+                (e) => {
+                    setTextInput(e.target.value);
+                }
+            } value={textInput}></textarea>
+            <SendIcon onClick={async () => {
+                if (textInput === '') return;
+                const newMessage: MessageInterface = {
+                    content: textInput,
+                    senderId: selectedChat.influencerId,
+                    timestamp: new Date(),
+                    messageStatus: 'not-sent'
+                }
+                setSelectedMessages([...selectedMessages, newMessage]);
+                setTextInput('');
+                try {
+                    await axios.post(`${BASE_URL}/influencer/send`, {
+                        followerId: selectedChat.followerId,
+                        content: textInput
+                    }, {
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)
+                        }
+                    })
+                    setShouldReloadChats(true);
+                }
+                catch (e) {
+                }
+            }} 
+            style={{cursor:'pointer'}}/>
         </div>
     )
 }

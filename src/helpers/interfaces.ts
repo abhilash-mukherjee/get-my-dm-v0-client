@@ -17,6 +17,7 @@ export interface ChatInterface{
     followerName: string,
     lastMessageSenderId: string
     followerId: string,
+    influencerId: string,
     latestMessageContent: string,
     updatedAt: Date,
     latestMessageTimestamp: Date,
@@ -27,6 +28,7 @@ export const defaultChat : ChatInterface= {
       followerName: '', 
       lastMessageSenderId: '', 
       followerId: '', 
+      influencerId: '',
       latestMessageContent: '', 
       updatedAt: new Date(), 
       latestMessageTimestamp: new Date(), 

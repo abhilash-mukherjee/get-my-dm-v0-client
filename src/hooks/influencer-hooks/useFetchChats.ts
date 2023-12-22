@@ -40,6 +40,7 @@ export function useFetchChats() : [ChatInterface[],boolean]{
                     conversationId: chat.conversation._id,
                     followerName: chat.follower.fullName,
                     followerId: chat.conversation.follower,
+                    influencerId: chat.conversation.influencer,
                     lastMessageSenderId: chat.latestMessage.sender,
                     latestMessageContent: chat.latestMessage.content,
                     latestMessageStatus: chat.latestMessage.messageStatus,
