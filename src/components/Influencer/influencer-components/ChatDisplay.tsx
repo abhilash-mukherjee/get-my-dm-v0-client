@@ -3,11 +3,9 @@ import { influencerChatsState } from "../../../store/atoms/chatsAtom"
 import { Typography } from "@mui/material"
 import '../influencer-styles/chat-display.css'
 import { influencerDetailsState } from "../../../store/atoms/influencerDetailsAtom"
-import DoneAllIcon from '@mui/icons-material/DoneAll';
-import DoneIcon from '@mui/icons-material/Done';
-import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { useNavigate } from "react-router-dom"
+import { MessageStatusGraphic } from "../../common/MessageStatusGraphic"
 export function ChatDisplay() {
     const navigate = useNavigate();
     const chats = useRecoilValue(influencerChatsState)
@@ -38,16 +36,3 @@ export function ChatDisplay() {
         </div>)
 }
 
-interface MessageStatusGraphicProps {
-    messageStatus: string
-}
-
-export function MessageStatusGraphic({ messageStatus }: MessageStatusGraphicProps) {
-    if (messageStatus === 'delivered')
-        return (<DoneIcon style={{color:'#7D8BAA'}}sx={{fontSize: 17}}/>)
-    if (messageStatus === 'received')
-        return (<DoneAllIcon style={{color:'#7D8BAA'}}sx={{fontSize: 17}}/>)
-    if (messageStatus === 'seen')
-        return (<DoneAllIcon fontSize="small" sx={{fontSize: 17}}/>)
-    return <QueryBuilderIcon style={{color:'#7D8BAA'}}sx={{fontSize: 17}}/>
-}

@@ -42,3 +42,9 @@ export const defaultChat : ChatInterface= {
     senderId: string
 }
 
+export interface InfluencerPublicDetailsInterface{
+    fullName: string,
+    bio: string,
+    id: string,
+    defaultMessage: string
+}

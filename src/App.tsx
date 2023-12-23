@@ -5,6 +5,7 @@ import { Influencer } from './components/Influencer/Influencer';
 import { Grid, CssBaseline } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ChatPage } from './components/follower/ChatPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Router>
               <Routes>
                 <Route path='/influencer/*' element={<Influencer />} />
+                <Route path='/:influencerSlug' element={<ChatPage />} />
               </Routes>
             </Router>
           </Grid>

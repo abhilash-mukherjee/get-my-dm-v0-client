@@ -1,0 +1,35 @@
+.message-bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding:6px;
+    border-top: 1px solid black;
+    margin-top: 4px;
+    gap:6px;
+}
+
+.chat-input{
+    border:none;
+    border-radius:0;
+    outline:none;
+    flex:1;
+    resize: none;
+    scrollbar-width: 2px;
+}
+
+.chat-input::-webkit-scrollbar {
+    width: 4px; /* width of the entire scrollbar */
+}
+
+.chat-input::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the tracking area */
+}
+
+.chat-input::-webkit-scrollbar-thumb {
+    background: #c4c4c4; /* color of the scroll thumb */
+    border-radius: 10px; /* roundness of the scroll thumb */
+}
+
+.chat-input::-webkit-scrollbar-thumb:hover {
+    background: #c9c9c9; /* color of the scroll thumb when hovered or active */
+}

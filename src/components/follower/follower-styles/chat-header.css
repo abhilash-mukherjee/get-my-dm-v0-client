@@ -1,0 +1,30 @@
+.public-chat-header {
+    max-width: 100%;
+    padding-block: 32px;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-inline: 22px;
+}
+
+.bio-text,
+.name-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: center;
+    max-height: 3em;
+    line-height: 1.5em;
+}
+
+.name-text {
+    -webkit-line-clamp: 1;
+    max-height: 3em;
+}
+
+.bio-text {
+    -webkit-line-clamp: 2;
+    max-height: 3em;
+}

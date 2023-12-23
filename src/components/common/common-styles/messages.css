@@ -1,0 +1,29 @@
+.outgoing-msg-container, .incoming-msg-container{
+    max-width: 70%;
+    word-break: break-word;
+}
+.incoming-msg-container{
+    align-self: flex-start;
+}
+.outgoing-msg-container{
+    align-self: flex-end;
+}
+
+.incoming-msg-contents, .outgoing-msg-contents{
+    border-radius: 6px;
+    padding-inline: 16px;
+    padding-block: 8px;
+}
+.incoming-msg-contents{
+    background-color:#FDEDF4;
+}
+.outgoing-msg-contents{
+    background-color: #F8FBFF;
+}
+
+.chat-footer{
+    display: flex;
+    justify-content: flex-end;
+    gap:4px
+}
+

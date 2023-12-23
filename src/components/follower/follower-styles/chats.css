@@ -1,23 +1,4 @@
-.individual-chat-container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-    overflow-y: wrap;
-    width:100%;
-}
-
-.header{
-    padding-inline: 12px;
-    padding-top: 16px;
-    padding-bottom: 8px;
-    display: flex;
-    gap: 40px;
-    background-color: white; 
-    width: 100%;
-}
-
-.messages-container{
+.follower-chat{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -27,28 +8,25 @@
     overflow-y: auto;
     overflow-x: none;
 }
-
-/* For Webkit browsers */
-.messages-container::-webkit-scrollbar {
+.follower-chat::-webkit-scrollbar {
     width: 5px; /* width of the entire scrollbar */
 }
 
-.messages-container::-webkit-scrollbar-track {
+.follower-chat::-webkit-scrollbar-track {
     background: #f1f1f1; /* color of the tracking area */
 }
 
-.messages-container::-webkit-scrollbar-thumb {
+.follower-chat::-webkit-scrollbar-thumb {
     background: #c4c4c4; /* color of the scroll thumb */
     border-radius: 10px; /* roundness of the scroll thumb */
 }
 
-.messages-container::-webkit-scrollbar-thumb:hover {
+.follower-chat::-webkit-scrollbar-thumb:hover {
     background: #c9c9c9; /* color of the scroll thumb when hovered or active */
 }
 
 /* For Firefox */
-.messages-container {
+.follower-chat {
     scrollbar-width: thin; /* "auto" or "thin" */
     scrollbar-color: #888 #f1f1f1; /* thumb and track color */
 }
-
