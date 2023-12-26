@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { selectedChatState } from "../../store/atoms/selectedChatAtom";
-import { selectedMessagesState } from "../../store/atoms/selectedMessagesAtom";
-import { shouldReloadChatsState } from "../../store/atoms/reloadChatsAtom";
+import { selectedChatState } from "../../store/atoms/influencer/selectedChatAtom";
+import { selectedMessagesState } from "../../store/atoms/influencer/selectedMessagesAtom";
+import { shouldReloadChatsState } from "../../store/atoms/influencer/reloadChatsAtom";
 import SendIcon from '@mui/icons-material/Send';
 import { MessageInterface } from "../../helpers/interfaces";
 import { BASE_URL, TOKEN } from "../../helpers/strings";

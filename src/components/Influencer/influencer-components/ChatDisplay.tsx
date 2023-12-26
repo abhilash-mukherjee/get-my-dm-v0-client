@@ -1,8 +1,8 @@
 import { useRecoilValue } from "recoil"
-import { influencerChatsState } from "../../../store/atoms/chatsAtom"
+import { influencerChatsState } from "../../../store/atoms/influencer/chatsAtom"
 import { Typography } from "@mui/material"
 import '../influencer-styles/chat-display.css'
-import { influencerDetailsState } from "../../../store/atoms/influencerDetailsAtom"
+import { influencerDetailsState } from "../../../store/atoms/influencer/influencerDetailsAtom"
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { useNavigate } from "react-router-dom"
 import { MessageStatusGraphic } from "../../common/MessageStatusGraphic"

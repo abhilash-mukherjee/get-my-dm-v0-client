@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { InfluencerPublicDetailsInterface } from "../../helpers/interfaces";
+import { InfluencerPublicDetailsInterface } from "../../../helpers/interfaces";
 
 export const influencerPublicDetailsState = atom<InfluencerPublicDetailsInterface>({
     key:'InfluencerPunlicDetails',

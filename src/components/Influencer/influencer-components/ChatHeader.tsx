@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import '../influencer-styles/chat-header.css'
 import { useRecoilValue } from "recoil";
-import { influencerDetailsState } from "../../../store/atoms/influencerDetailsAtom";
+import { influencerDetailsState } from "../../../store/atoms/influencer/influencerDetailsAtom";
 import { PROMOTION_URL, TOKEN } from "../../../helpers/strings";
 import { useNavigate } from "react-router-dom";
 import { useFetchInfluencerDetails } from "../../../hooks/influencer-hooks/useFetchInfluencerDetails";

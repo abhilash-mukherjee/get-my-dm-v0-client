@@ -1,17 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { Typography, TextField } from "@mui/material";
-import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
-import { selectedChatState } from "../../../store/atoms/selectedChatAtom";
+import { Typography } from "@mui/material";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { selectedChatState } from "../../../store/atoms/influencer/selectedChatAtom";
 import CloseIcon from '@mui/icons-material/Close';
 import '../influencer-styles/individual-chat.css'
 import { ChatInterface, MessageInterface, defaultChat } from "../../../helpers/interfaces";
 import { useEffect, useRef } from "react";
-import { influencerChatsState } from "../../../store/atoms/chatsAtom";
+import { influencerChatsState } from "../../../store/atoms/influencer/chatsAtom";
 import { useFetchChats } from "../../../hooks/influencer-hooks/useFetchChats";
 import axios from "axios";
 import { BASE_URL, TOKEN } from "../../../helpers/strings";
-import { selectedMessagesState } from "../../../store/atoms/selectedMessagesAtom";
-import { shouldReloadChatsState } from "../../../store/atoms/reloadChatsAtom";
+import { selectedMessagesState } from "../../../store/atoms/influencer/selectedMessagesAtom";
+import { shouldReloadChatsState } from "../../../store/atoms/influencer/reloadChatsAtom";
 import { MessageBar } from "../../common/MessageBar";
 import { IncomingMessage } from "../../common/IncomingMessage";
 import { OutgoingMessage } from "../../common/OutgoingMessage";
@@ -31,7 +31,7 @@ export function Chat() {
             const maxScrollTop = scrollHeight - height;
             messagesContainerRef.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
         }
-    }, [messages]);
+    }, [messages.length]);
     useEffect(() => {
         const chat = chats.find(chat => chat.conversationId === conversationId);
         if (!chat) return;

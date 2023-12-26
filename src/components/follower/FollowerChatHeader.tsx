@@ -1,8 +1,8 @@
 import { useRecoilValue } from "recoil"
-import { influencerPublicDetailsState } from "../../store/atoms/influencerPublicDetailsAtom"
+import { influencerPublicDetailsState } from "../../store/atoms/follower/influencerPublicDetailsAtom"
 import { Typography } from "@mui/material";
 import './follower-styles/chat-header.css'
-export function ChatHeader() {
+export function FollowerChatHeader() {
     const { fullName, bio} = useRecoilValue(influencerPublicDetailsState);
     return (
         <div className="public-chat-header">

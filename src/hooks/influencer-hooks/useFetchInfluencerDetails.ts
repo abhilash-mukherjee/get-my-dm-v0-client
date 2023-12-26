@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { BASE_URL, TOKEN } from '../../helpers/strings';
 import axios from 'axios';
-import { influencerDetailsState } from '../../store/atoms/influencerDetailsAtom';
+import { influencerDetailsState } from '../../store/atoms/influencer/influencerDetailsAtom';
 import { influencerDetailsSchema } from '../../helpers/zodSchemas';
 
 export function useFetchInfluencerDetails() {

@@ -1,17 +1,18 @@
-import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { PageLevelLoading } from "../common/PageLevelLoading";
 import { useParams } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { influencerPublicDetailsState } from "../../store/atoms/influencerPublicDetailsAtom";
+import { influencerPublicDetailsState } from "../../store/atoms/follower/influencerPublicDetailsAtom";
 import axios from "axios";
 import { BASE_URL } from "../../helpers/strings";
 import { Error404 } from "../common/404";
-import { ChatHeader } from "./ChatHeader";
+import { FollowerChatHeader } from "./FollowerChatHeader";
 import './follower-styles/chat-header.css'
 import { FollowerChat } from "./FollowerChat";
+import { FollowerMessageBar } from "./FollowerMessageBar";
+import './follower-styles/chat-container.css'
 
-export function ChatPage() {
+export function FollowerChatPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [isErrorInLoading, setIsErrorInLoading] = useState(false);
     const slug = useParams().influencerSlug;
@@ -45,8 +46,9 @@ export function ChatPage() {
 
     return (
         <div className='follower-chat-container'>
-            <ChatHeader/>
+            <FollowerChatHeader/>
             <FollowerChat/>
+            <FollowerMessageBar/>
         </div>
     )
 }

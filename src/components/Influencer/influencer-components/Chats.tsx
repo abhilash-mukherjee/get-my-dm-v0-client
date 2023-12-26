@@ -1,14 +1,14 @@
 import { useRecoilValue} from "recoil";
 import { ChatHeader } from "./ChatHeader";
-import { PROMOTION_URL, TOKEN } from "../../../helpers/strings";
+import { PROMOTION_URL } from "../../../helpers/strings";
 import { Button, Typography } from "@mui/material";
-import { influencerDetailsState } from "../../../store/atoms/influencerDetailsAtom";
+import { influencerDetailsState } from "../../../store/atoms/influencer/influencerDetailsAtom";
 import '../../common/common-styles/containers.css'
 import '../influencer-styles/no-dms-yet.css'
 import { handleCopy } from "../../../helpers/helperMethods";
 import { ChatDisplay } from "./ChatDisplay";
-import { isChatsFetchedOnceState } from "../../../store/atoms/isChatsFetchedOnceAtom";
-import { chatsExistState } from "../../../store/atoms/chatsExistAtom";
+import { isChatsFetchedOnceState } from "../../../store/atoms/influencer/isChatsFetchedOnceAtom";
+import { chatsExistState } from "../../../store/atoms/influencer/chatsExistAtom";
 import { useFetchChats } from "../../../hooks/influencer-hooks/useFetchChats";
 
 export function Chats() {

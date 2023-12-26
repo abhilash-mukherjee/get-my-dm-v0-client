@@ -3,12 +3,11 @@ import { BASE_URL, TOKEN } from "../../helpers/strings";
 import axios from "axios";
 import { ChatInterface } from "../../helpers/interfaces";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { influencerChatsState } from "../../store/atoms/chatsAtom";
-import { isChatsFetchedOnceState } from "../../store/atoms/isChatsFetchedOnceAtom";
+import { influencerChatsState } from "../../store/atoms/influencer/chatsAtom";
+import { isChatsFetchedOnceState } from "../../store/atoms/influencer/isChatsFetchedOnceAtom";
 import { useEffect, useState } from "react";
-import { handleHTTPError } from "../../helpers/errorHandler";
-import { chatsExistState } from "../../store/atoms/chatsExistAtom";
-
+import { chatsExistState } from "../../store/atoms/influencer/chatsExistAtom";
+var isChatsFetchedOnce = false;
 export function useFetchChats() : [ChatInterface[],boolean]{
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +20,8 @@ export function useFetchChats() : [ChatInterface[],boolean]{
         const token = localStorage.getItem(TOKEN);
         if (!token || token === '') {
             localStorage.removeItem(TOKEN);
-            return navigate('../')
+            console.log('no token');
+            return;
         }
         try {
             const authorization = 'Bearer ' + token;
@@ -60,8 +60,13 @@ export function useFetchChats() : [ChatInterface[],boolean]{
         setIsLoading(false);
         console.log('loaded');
     }
+    
     useEffect(() => {
-        fetchChats();
+        if(!isChatsFetchedOnce){
+            fetchChats();
+            isChatsFetchedOnce= true;
+        }
+        setInterval(fetchChats,5000);
     },[])
     return [chats,isLoading];
 }
