@@ -9,3 +9,5 @@ export const DELIVERED='delivered';
 export const RECEIVED='received';
 export const SEEN='seen';
 export const IS_FOLLOWER_SIGNED_UP_ONCE = 'isFollowerSignedUpOnce'
+export const DISPLAY_IMAGE_URL = 'https://res.cloudinary.com/do1kzwslv/image/upload/v1703782221/get-my-dm-display-image_mvhxri.png';
+export const LOGO_URL = 'https://res.cloudinary.com/do1kzwslv/image/upload/v1703782261/get-my-dm-logo_yvsyl1.svg';

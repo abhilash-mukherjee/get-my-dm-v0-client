@@ -2,7 +2,7 @@ import { Button, Grid, Typography } from '@mui/material';
 import { Appbar } from '../../common/Appbar';
 import { useNavigate } from 'react-router-dom';
 import { useAuthRedirect } from '../../../hooks/influencer-hooks/useAuthRedirect';
-import { PUBLIC_URL } from '../../../helpers/strings';
+import { DISPLAY_IMAGE_URL } from '../../../helpers/strings';
 export function InfluencerLandingPage() {
     console.log('inside landing page')
     const {isAuthChecked} = useAuthRedirect('./chats');
@@ -34,7 +34,7 @@ export function InfluencerLandingPage() {
                             <div style={{
                                 maxWidth: '100%'
                             }}>
-                                <img src={PUBLIC_URL + '/dist/assets/display-image.png'} />
+                                <img src={DISPLAY_IMAGE_URL} />
                             </div>
                         </Grid>
                         <Grid item width='100%' minHeight={'300'}>
