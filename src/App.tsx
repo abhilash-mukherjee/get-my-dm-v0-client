@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FollowerChatPage } from './components/follower/FollowerChatPage';
 import { Follower } from './components/follower/Follower';
+import { LandingPage } from './components/common/LandingPage';
+import { People } from './components/people/People';
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
             <Router>
               <Routes>
                 <Route path='/influencer/*' element={<Influencer />} />
-                <Route path='/:influencerSlug' element={<FollowerChatPage />} />
                 <Route path='/follower/*' element={<Follower />} />
+                <Route path='/people' element={<People />} />
+                <Route path='/:influencerSlug' element={<FollowerChatPage />} />
+                <Route path='/' element={<LandingPage />} />
               </Routes>
             </Router>
           </Grid>

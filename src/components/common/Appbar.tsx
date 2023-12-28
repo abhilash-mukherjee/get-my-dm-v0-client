@@ -1,6 +1,8 @@
 import { Container } from "@mui/material";
 import logo from '../../assets/logo.png'
+import { useNavigate } from "react-router-dom";
 export function Appbar() {
+    const navigate = useNavigate();
     return (
         <>
             <Container style={
@@ -10,8 +12,13 @@ export function Appbar() {
                 }
             }>
                     <img src={logo} alt="logo" style={{
-                        maxWidth:'90px'
-                    }} />
+                        maxWidth:'90px',
+                        cursor:'pointer'
+                    }} 
+                    onClick={()=>{
+                        navigate('../../../../');
+                    }}
+                    />
             </Container>
         </>
     )

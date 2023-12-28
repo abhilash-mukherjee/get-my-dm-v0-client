@@ -1,5 +1,7 @@
-export const BASE_URL =  'https://get-my-dm-v0-server.vercel.app';
-// export const BASE_URL =  'http://localhost:3000';
+// export const BASE_URL =  'https://get-my-dm-v0-server.vercel.app';
+// export const PUBLIC_URL =  'https://www.getmydm.com';
+export const BASE_URL =  'http://localhost:3000';
+export const PUBLIC_URL =  'http://localhost:5173';
 export const TOKEN = 'token';
 export const FOLLOWER_TOKEN = 'followerToken';
 export const PROMOTION_URL = 'getmydm.com/'

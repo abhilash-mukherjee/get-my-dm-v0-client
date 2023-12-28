@@ -46,5 +46,7 @@ export interface InfluencerPublicDetailsInterface{
     fullName: string,
     bio: string,
     id: string,
-    defaultMessage: string
+    imageUrl: string,
+    defaultMessage: string,
+    slug: string,
 }

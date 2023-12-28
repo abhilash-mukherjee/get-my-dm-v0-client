@@ -7,6 +7,8 @@ export const influencerPublicDetailsState = atom<InfluencerPublicDetailsInterfac
         fullName:'',
         id: '',
         bio: '',
-        defaultMessage: ''
+        imageUrl: '',
+        defaultMessage: '',
+        slug: '',
     }
 })

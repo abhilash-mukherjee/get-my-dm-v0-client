@@ -15,14 +15,14 @@ import './follower-styles/chat-container.css'
 export function FollowerChatPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [isErrorInLoading, setIsErrorInLoading] = useState(false);
-    const slug = useParams().influencerSlug;
+    const slug = useParams().influencerSlug as string;
     const setInfluencerPublicDetails = useSetRecoilState(influencerPublicDetailsState);
 
     const fetchDetails = async () => {
         try {
             const response = await axios.get(`${BASE_URL}/influencer/${slug}`);
-            const {fullName, bio, defaultMessage, id} = response.data as {fullName: string, bio: string, defaultMessage: string, id: string}
-            setInfluencerPublicDetails({fullName,bio, defaultMessage, id});
+            const {fullName, bio, imageUrl, defaultMessage, id} = response.data as {fullName: string, bio: string, imageUrl: string, defaultMessage: string, id: string}
+            setInfluencerPublicDetails({fullName,bio, defaultMessage, id, imageUrl, slug});
             setIsErrorInLoading(false)
         }
         catch (e) {

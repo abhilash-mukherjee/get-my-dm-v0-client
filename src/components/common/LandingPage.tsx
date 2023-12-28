@@ -1,18 +1,10 @@
-import { Button, Grid, Typography } from '@mui/material';
-import { Appbar } from '../../common/Appbar';
-import { useNavigate } from 'react-router-dom';
-import { useAuthRedirect } from '../../../hooks/influencer-hooks/useAuthRedirect';
-import { PUBLIC_URL } from '../../../helpers/strings';
-export function InfluencerLandingPage() {
-    console.log('inside landing page')
-    const {isAuthChecked} = useAuthRedirect('./chats');
+import { Button, Grid, Typography } from "@mui/material"
+import { Appbar } from "./Appbar"
+import { useNavigate } from "react-router-dom"
+import { PUBLIC_URL } from "../../helpers/strings";
+
+export function LandingPage() {
     const navigate = useNavigate();
-    if (!isAuthChecked) {
-        return (
-            <>
-            </>
-        ) 
-    }
     return (
         <>
             <div style={{
@@ -29,7 +21,7 @@ export function InfluencerLandingPage() {
                 >
                     <Grid item container padding={'24px'} gap={'16px'}>
                         <Grid item width='100%'>
-                            <Typography variant={'h5'} textAlign={'center'} fontWeight={'700'} paddingInline={'20px'}>Manage All Your DMs at One Place</Typography>
+                            <Typography variant={'h5'} textAlign={'center'} fontWeight={'700'} paddingInline={'20px'}>A Better Way to Send & Receive DMs</Typography>
                             <br></br>
                             <div style={{
                                 maxWidth: '100%'
@@ -40,36 +32,37 @@ export function InfluencerLandingPage() {
                         <Grid item width='100%' minHeight={'300'}>
                             <div style={{
                                 display: 'flex',
-                                alignItems: 'center',
-                                flexDirection:'column',
+                                justifyContent: 'center',
+                                flexDirection: 'column',
                                 gap: '20px',
-                                width: '100%'
+                                alignItems: 'center'
                             }
                             }>
                                 <Button
                                     variant={'contained'}
-                                    color='secondary'
-                                    onClick={()=>{
-                                        navigate('./login')
+                                    color='primary'
+                                    onClick={() => {
+                                        navigate('./influencer/')
                                     }}
                                     fullWidth={true}
                                     style={{
-                                        width:'250px'
+                                        maxWidth: '250px'
                                     }}
-                                >Login
+                                >I am an Influencer
                                 </Button>
 
                                 <Button
                                     variant={'contained'}
-                                    color='primary'
-                                    onClick={()=>{
-                                        navigate('./signup')
-                                    }}
+                                    color='secondary'
                                     fullWidth={true}
-                                    style={{
-                                        width:'250px'
+
+                                    onClick={() => {
+                                        navigate('./people')
                                     }}
-                                >Signup
+                                    style={{
+                                        maxWidth: '250px'
+                                    }}
+                                >Discover Top Voices
                                 </Button>
                             </div>
                         </Grid>

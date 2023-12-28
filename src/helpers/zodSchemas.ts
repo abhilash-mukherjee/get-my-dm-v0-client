@@ -12,5 +12,6 @@ export const errorResponseSchema = z.object({
 export const influencerDetailsSchema = z.object({
     fullName:z.string(),
     id: z.string(),
-    slug: z.string()
+    slug: z.string(),
+    imageUrl: z.string(),
 })
